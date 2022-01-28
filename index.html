@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Locality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src='components/tour.js'></script>
+    <script src='components/cursorEvent.js'></script> 
+  </head>
+  <body>
+    <a-scene id='main-scene'>
+      <a-sky id='main-container' src='assets/background.jpg' rotation='0 -90 0'></a-sky>
+
+      <a-camera id='camera' wasd-controls='enabled: false'>
+        <!--App Title-->
+        <a-entity id='app-title' position="-0.08 0.73 -1" text='font: exo2bold; align: center; width: 2.5; color: black; value: My Locality'></a-entity>
+
+        <!--Cursor-->
+        <a-entity id='camera-cursor' cursor position='0 0 -1' geometry='primitive: ring; radiusInner: 0.02; radiusOuter: 0.03' material='color: orange; shader: flat'></a-entity>
+      </a-camera>
+
+      <!--Places Container-->
+      <a-entity id='places-container' tour cursor-listener></a-entity>
+
+      <!--Places View-->
+      <a-entity id='side-view-container' places-view cursor-listener></a-entity>
+    </a-scene>
+  </body>
+</html>
